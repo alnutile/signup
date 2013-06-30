@@ -1,5 +1,8 @@
 Signup::Application.routes.draw do
-  devise_for :users, path_names: {sign_in: "login", sign_out: "logout", sign_up: "signup"}
+  resources :products
+
+
+  devise_for :users, path_names: {sign_in: "login", sign_up: "signup"}
   match "/home" => "static_pages#home"
   match "/help" => "static_pages#help"
 

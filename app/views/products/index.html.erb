@@ -1,27 +1,46 @@
-<h1>Listing products</h1>
+<div class="row">
+      <div class="span12">
+        <h2>Services offered!</h2>
+      </div>
+</div>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Decimal</th>
-    <th>Teaser</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<div class="row">
+      <div class="span12">
+        <h2><%= image_tag 'paperplane.png' %></h2>
+      </div>
+</div>
+
+
+<div class="row">
+      <div class="span12">
+        <h3 class="subtitle">
+          <strong>
+            Click one below to subscribe. You can choose others after.
+          </strong>
+        </h3>
+      </div>
+</div>
+
+<br>
+<br>
 
 <% @products.each do |product| %>
-  <tr>
-    <td><%= product.name %></td>
-    <td><%= product.decimal %></td>
-    <td><%= product.teaser %></td>
-    <td><%= link_to 'Show', product %></td>
-    <td><%= link_to 'Edit', edit_product_path(product) %></td>
-    <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+<div class="box drop-shadow">
+      <div class="row">
+        <div class="span4">
+          <%= image_tag product.photo.url(:small) %>
+        </div>
+        <div class="span7">
+          <h2><%= product.active %></h2>
+          <h3 class="price">Monthly:$<%= product.price %></h3>
+          <p><%= product.teaser %></p>
+          <%= link_to 'More Info...', product %>
+          <%= link_to "Subscribe", new_user_registration_path(:product => product.id) %>
+        </div>
+      </div> <!-- /row -->
+</div>
+</br>
+</br>
 <% end %>
-</table>
-
 <br />
 
-<%= link_to 'New Product', new_product_path %>

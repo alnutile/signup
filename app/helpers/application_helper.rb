@@ -11,4 +11,9 @@ module ApplicationHelper
   def admin 
   	return true
   end
+
+  def product_name(id) 
+  	product = Product.find_by_id(id)
+  	return product.name
+  end
 end

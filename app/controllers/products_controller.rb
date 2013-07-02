@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_filter :admin, only: [:new, :edit, :update]
   # GET /products
   # GET /products.json
   def index

@@ -1,20 +1,31 @@
 <p id="notice"><%= notice %></p>
+<div class="row">
+	<div class="span12">
+		<h2><%= @product.name %></h2>
+	</div>
+</div>
 
-<p>
-  <b>Name:</b>
-  <%= @product.name %>
-</p>
+<div class="row">
+	<div class="span12">
+		<h2><%= image_tag @product.photo.url(:small) %></h2>
+	</div>
+</div>
 
-<p>
-  <b>Decimal:</b>
-  <%= @product.decimal %>
-</p>
+<div class="row">
+	<div class="span12">
+		<h3 class="subtitle"><strong>Simple, affordable solutions</strong></h3>
+	</div>
+</div>
 
-<p>
-  <b>Teaser:</b>
-  <%= @product.teaser %>
-</p>
-
-
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+<div class="row">
+	<div class="leftside span3 offset1">
+	<div class="price">
+			<strong>Monthly Cost:</strong> $<%= @product.price.round %>
+		</div>
+		</br>
+		  <%= product_sell_button(@product) %>
+	</div>
+	<div class="span6 media">
+	  <%= @product.fulltext %>
+	</div>
+</div>

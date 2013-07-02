@@ -2,6 +2,24 @@
 	<div class="span12">
 		<h2>Sign up</h2>
 	</div>
+	<% if params['product'].nil? %>
+
+			<div class="row">
+				<div class="span12">
+					<h2><%= image_tag('envelope.png') %></h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="box drop-shadow span8 offset2">
+					<div class="row">
+						<div class="span6 offset1">
+							<p>Oops...  you must choose a product before you can register <%= link_to 'products', products_path() %></p>
+						</div>
+					</div>
+				</div>
+			</div>
+	<% else %>
+
 
 		<div class="row">
 			<div class="span12">
@@ -12,7 +30,11 @@
 			<div class="box drop-shadow span8 offset2">
 				<div class="row">
 					<div class="span6 offset1">
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nulla mauris, tincidunt nec mattis consequat, dignissim quis odio. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.</p>
+						<p>This will begin the registration process for <%= product_name(params['product']) %></p>
+						<p>You will not be charged or asked for a credit card</p> <small>(which makes charging you even harder (:)</small></p>
+						<p>After 7 days you will be asked for a credit card.</p>
+					</br>
+					<strong class="enjoy">Enjoy!</strong>
 					</div>
 				</div>
 			</div>
@@ -55,4 +77,5 @@
 		</div>
 	</div>
 </div>
+<% end %>
 

@@ -37,11 +37,7 @@
           <%= link_to 'More Info...', product, :class => "more" %>
           <br>
           <br>
-          <% if product.active == true %>
-            <%= link_to "Subscribe", new_user_registration_path(:product => product.id), :class => 'btn btn-primary' %>
-          <% else %>
-             Coming Soon...
-          <% end %>
+            <%= product_sell_button(product) %>
         </div>
       </div> <!-- /row -->
 </div>
